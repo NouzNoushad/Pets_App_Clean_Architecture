@@ -4,6 +4,7 @@ import 'package:pet_app/domain/entity/pet_entity.dart';
 class PetModel extends PetEntity {
   PetModel(
       {super.weight,
+      super.image,
       super.id,
       super.name,
       super.temperament,
@@ -45,6 +46,7 @@ class PetModel extends PetEntity {
 
   factory PetModel.fromJson(Map<String, dynamic> json) => PetModel(
         weight: WeightModel.fromJson(json["weight"]),
+        image: json["image"],
         id: json["id"],
         name: json["name"],
         cfaUrl: json["cfa_url"],

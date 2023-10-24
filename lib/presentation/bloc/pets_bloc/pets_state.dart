@@ -12,11 +12,11 @@ final class PetsInitial extends PetsState {}
 final class PetsLoadingState extends PetsState {}
 
 class PetsLoadedState extends PetsState {
-  final List<PetModel> petModel;
-  const PetsLoadedState(this.petModel);
+  final List<PetEntity> petEntity;
+  const PetsLoadedState(this.petEntity);
 
   @override
-  List<Object> get props => [petModel];
+  List<Object> get props => [petEntity];
 }
 
 class PetsErrorState extends PetsState {

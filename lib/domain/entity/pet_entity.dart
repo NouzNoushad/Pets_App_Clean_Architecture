@@ -2,6 +2,7 @@ import 'package:pet_app/data/models/weight_model.dart';
 
 class PetEntity {
   WeightModel? weight;
+  String? image;
   String? id;
   String? name;
   String? cfaUrl;
@@ -43,6 +44,7 @@ class PetEntity {
 
   PetEntity({
     this.weight,
+    this.image,
     this.id,
     this.name,
     this.cfaUrl,

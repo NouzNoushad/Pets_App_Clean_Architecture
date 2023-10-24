@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pet_app/config/routes/route_constant.dart';
 import 'package:pet_app/core/utils/colors.dart';
 import 'package:pet_app/presentation/bloc/pets_bloc/pets_bloc.dart';
+import 'package:pet_app/presentation/screens/pets_home/components/pet_card.dart';
 
 class PetsHomeScreen extends StatefulWidget {
   const PetsHomeScreen({super.key});
@@ -21,6 +23,23 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorPicker.backgroundColor,
+      appBar: AppBar(
+        title: const Text('Kitty Kats'),
+        automaticallyImplyLeading: false,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                colors: [ColorPicker.gradient1, ColorPicker.gradient2]),
+          ),
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(RouteConstant.favorite);
+              },
+              icon: const Icon(Icons.favorite))
+        ],
+      ),
       body: BlocConsumer<PetsBloc, PetsState>(
         listener: (context, state) {
           if (state is PetsErrorState) {
@@ -35,19 +54,16 @@ class _PetsHomeScreenState extends State<PetsHomeScreen> {
           }
           if (state is PetsLoadedState) {
             return ListView.separated(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
                 itemBuilder: (context, index) {
-                  var pet = state.petModel[index];
-                  return Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(pet.name.toString()),
-                    ),
-                  );
+                  var pet = state.petEntity[index];
+                  return PetCard(pet: pet);
                 },
                 separatorBuilder: (context, index) => const SizedBox(
-                      height: 10,
+                      height: 5,
                     ),
-                itemCount: state.petModel.length);
+                itemCount: state.petEntity.length);
           }
           return Container();
         },
