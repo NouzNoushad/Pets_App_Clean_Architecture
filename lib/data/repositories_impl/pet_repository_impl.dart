@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_app/core/errors/failure.dart';
 import 'package:pet_app/core/utils/extensions.dart';
-import 'package:pet_app/data/models/pet_favorite_model.dart';
+import 'package:pet_app/domain/entity/pet_favorite_entity.dart';
 import 'package:pet_app/domain/entity/pet_entity.dart';
 import 'package:pet_app/domain/repositories/pet_repository.dart';
 
@@ -29,12 +29,14 @@ class PetRepositoryImpl extends PetRepository {
   }
 
   @override
-  Future<bool> addFavorite(PetFavoriteModel petEntity) async =>
-      await petDataSourceLocal.addFavorite(petEntity);
+  Future<bool> addFavorite(PetFavoriteEntity petEntity) async =>
+      await petDataSourceLocal.addFavorite(petEntity.fromFavoriteEntity);
 
   @override
-  Future<List<PetFavoriteModel>> getFavorites() async {
-    var pet = await petDataSourceLocal.getFavorites();
+  Future<List<PetFavoriteEntity>> getFavorites() async {
+    List<PetFavoriteEntity> pet = (await petDataSourceLocal.getFavorites())
+        .map((e) => e.toFavoriteEntity)
+        .toList();
     debugPrint('///////////////// favorites pet: $pet');
     return pet;
   }

@@ -1,5 +1,6 @@
-import 'package:pet_app/data/models/pet_favorite_model.dart';
 import 'package:pet_app/data/models/pet_model.dart';
+
+import '../models/pet_favorite_model.dart';
 
 abstract class PetDataSourceRemote {
   Future<List<PetModel>> getPetDataSource();

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pet_app/core/utils/colors.dart';
 import 'package:pet_app/core/utils/extensions.dart';
-import 'package:pet_app/data/models/pet_model.dart';
+import 'package:pet_app/domain/entity/pet_entity.dart';
 import 'package:pet_app/presentation/screens/pet_details/components/pet_status.dart';
 
 class PetDetailsScreen extends StatelessWidget {
-  final PetModel petModel;
+  final PetEntity petModel;
   const PetDetailsScreen({super.key, required this.petModel});
 
   @override
@@ -24,7 +24,7 @@ class PetDetailsScreen extends StatelessWidget {
       body: ListView(
         children: [
           SizedBox(
-            height: context.height * 0.4,
+            height: context.height * 0.35,
             width: context.width,
             child: petModel.image != ""
                 ? ClipRRect(

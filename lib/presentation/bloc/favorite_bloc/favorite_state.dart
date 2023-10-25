@@ -12,7 +12,7 @@ final class FavoriteInitial extends FavoriteState {}
 final class FavoriteLoadingState extends FavoriteState {}
 
 class FavoriteLoadedState extends FavoriteState {
-  final List<PetFavoriteModel> favorites;
+  final List<PetFavoriteEntity> favorites;
   const FavoriteLoadedState(this.favorites);
 
   @override

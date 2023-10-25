@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pet_app/core/utils/extensions.dart';
-import 'package:pet_app/data/models/pet_favorite_model.dart';
+import 'package:pet_app/domain/entity/pet_favorite_entity.dart';
 import 'package:pet_app/domain/entity/pet_entity.dart';
 import 'package:pet_app/presentation/bloc/favorite_bloc/favorite_bloc.dart';
 import 'package:pet_app/presentation/widgets/like_button.dart';
@@ -54,22 +54,22 @@ class _PetCardState extends State<PetCard> {
                       onTap: () {
                         isLiked = !isLiked;
                         if (isLiked) {
-                          PetFavoriteModel petFavoriteModel = PetFavoriteModel(
-                              widget.pet.image.toString(),
-                              widget.pet.id.toString(),
-                              widget.pet.adaptability!,
-                              widget.pet.affectionLevel!,
-                              widget.pet.childFriendly!,
-                              widget.pet.description!,
-                              widget.pet.dogFriendly!,
-                              widget.pet.energyLevel!,
-                              widget.pet.grooming!,
-                              widget.pet.healthIssues!,
-                              widget.pet.intelligence!,
-                              widget.pet.name!,
-                              widget.pet.sheddingLevel!,
-                              widget.pet.socialNeeds!,
-                              widget.pet.strangerFriendly!);
+                          PetFavoriteEntity petFavoriteModel = PetFavoriteEntity(
+                             image: widget.pet.image.toString(),
+                             id: widget.pet.id.toString(),
+                             adaptability: widget.pet.adaptability!,
+                             affectionLevel: widget.pet.affectionLevel!,
+                             childFriendly: widget.pet.childFriendly!,
+                            description: widget.pet.description!,
+                            dogFriendly:  widget.pet.dogFriendly!,
+                            energyLevel: widget.pet.energyLevel!,
+                            grooming:  widget.pet.grooming!,
+                            healthIssues:  widget.pet.healthIssues!,
+                             intelligence: widget.pet.intelligence!,
+                            name:  widget.pet.name!,
+                            sheddingLevel:  widget.pet.sheddingLevel!,
+                            socialNeeds:  widget.pet.socialNeeds!,
+                            strangerFriendly:  widget.pet.strangerFriendly!);
                           context
                               .read<FavoriteBloc>()
                               .add(FavoriteAddedEvent(petFavoriteModel));

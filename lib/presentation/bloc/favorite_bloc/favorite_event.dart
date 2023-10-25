@@ -15,7 +15,7 @@ class FavoriteLoadedEvent extends FavoriteEvent {
 }
 
 class FavoriteAddedEvent extends FavoriteEvent {
-  final PetFavoriteModel petFavoriteModel;
+  final PetFavoriteEntity petFavoriteModel;
   const FavoriteAddedEvent(this.petFavoriteModel);
 
   @override

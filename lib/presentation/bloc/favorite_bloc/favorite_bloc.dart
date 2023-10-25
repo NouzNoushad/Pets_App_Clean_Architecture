@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:pet_app/core/usecase/usecase.dart';
-import 'package:pet_app/data/models/pet_favorite_model.dart';
+import 'package:pet_app/domain/entity/pet_favorite_entity.dart';
 import 'package:pet_app/domain/usecases/add_favorite_usecase.dart';
 import 'package:pet_app/domain/usecases/get_favorite_usecase.dart';
 import 'package:pet_app/domain/usecases/remove_favorite_usecase.dart';
@@ -27,7 +27,7 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
       ((event, emit) async {
         emit(FavoriteLoadingState());
         try {
-          List<PetFavoriteModel> favorites =
+          List<PetFavoriteEntity> favorites =
               await getFavoriteUseCase.call(emptyParams);
           emit(FavoriteLoadedState(favorites));
         } catch (error) {

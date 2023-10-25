@@ -1,42 +1,42 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'pet_favorite_model.dart';
+part of 'pet_favorite_entity.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class PetFavoriteModelAdapter extends TypeAdapter<PetFavoriteModel> {
+class PetFavoriteEntityAdapter extends TypeAdapter<PetFavoriteEntity> {
   @override
   final int typeId = 0;
 
   @override
-  PetFavoriteModel read(BinaryReader reader) {
+  PetFavoriteEntity read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return PetFavoriteModel(
-      fields[0] as String,
-      fields[1] as String,
-      fields[4] as int,
-      fields[5] as int,
-      fields[6] as int,
-      fields[3] as String,
-      fields[7] as int,
-      fields[8] as int,
-      fields[9] as int,
-      fields[10] as int,
-      fields[11] as int,
-      fields[2] as String,
-      fields[12] as int,
-      fields[13] as int,
-      fields[14] as int,
+    return PetFavoriteEntity(
+      image: fields[0] as String?,
+      id: fields[1] as String?,
+      adaptability: fields[4] as int?,
+      affectionLevel: fields[5] as int?,
+      childFriendly: fields[6] as int?,
+      description: fields[3] as String?,
+      dogFriendly: fields[7] as int?,
+      energyLevel: fields[8] as int?,
+      grooming: fields[9] as int?,
+      healthIssues: fields[10] as int?,
+      intelligence: fields[11] as int?,
+      name: fields[2] as String?,
+      sheddingLevel: fields[12] as int?,
+      socialNeeds: fields[13] as int?,
+      strangerFriendly: fields[14] as int?,
     );
   }
 
   @override
-  void write(BinaryWriter writer, PetFavoriteModel obj) {
+  void write(BinaryWriter writer, PetFavoriteEntity obj) {
     writer
       ..writeByte(15)
       ..writeByte(0)
@@ -77,7 +77,7 @@ class PetFavoriteModelAdapter extends TypeAdapter<PetFavoriteModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is PetFavoriteModelAdapter &&
+      other is PetFavoriteEntityAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

@@ -24,6 +24,12 @@ class _FavoritePetsScreenState extends State<FavoritePetsScreen> {
       backgroundColor: ColorPicker.backgroundColor,
       appBar: AppBar(
         title: const Text('Favorite Pets'),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                colors: [ColorPicker.gradient1, ColorPicker.gradient2]),
+          ),
+        ),
       ),
       body: BlocBuilder<FavoriteBloc, FavoriteState>(
         builder: (context, state) {
